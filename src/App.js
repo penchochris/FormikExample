@@ -1,4 +1,4 @@
-import FormikForm from "./FormikForm";
+import FormikForm from "./pages/FormikForm";
 
 function App() {
   return <FormikForm />;
