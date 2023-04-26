@@ -4,6 +4,7 @@ import React from "react";
 import { object, string, boolean } from "yup";
 import { verifyId, verifyURL } from "../validations";
 import Checkbox from "../components/inputs/Checkbox";
+import { TextField } from "@telefonica/mistica";
 
 const validation = object({
   id: verifyId,
@@ -20,14 +21,14 @@ const validation = object({
 
 const initialValues = {
   id: "",
-  isNovum: "",
+  isNovum: false,
   url: "",
   novumPreferences: "",
 };
 
 const onSubmit = () => alert("submit!");
 
-const FormikForm = (props) => {
+const FormikForm = () => {
   return (
     <Formik
       onSubmit={onSubmit}
@@ -46,8 +47,7 @@ const FormikForm = (props) => {
             }}
           >
             {console.log(values)}
-            <div>ID:</div>
-            <Field name="url" />
+            <Field name="id" label="ID:" component={TextField}/>
             {errors.id && touched.id && (
               <div style={{ color: "red" }}>{errors.id}</div>
             )}
